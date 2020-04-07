@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import '../src/styles/index.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Image, Profile } from './src/components'
+
+export default class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      person: {
+        name: 'Frank Savage',
+        biography: ' Current Student at UC Irvine, CA. Learning all aspects of Full Stack Developement. I am a Lifelong Learner! Forever expanding my Personal scope of knowledge in Current and Future Technologies. '
+      },
+      image: 'https://images.unsplash.com/photo-1506345285442-8e9a3a298cdd?auto=format&fit=crop&w=2883&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
+      quote: {
+        content: 'Change the World, Learn to CODE! ',
+        source: ''
+      }
+    }
+  }
+
+  render() {
+    const { image, person, quote } = this.state
+
+    return (
+      <div className="App">
+        <Image src={image} />
+        <Profile person={person} quote={quote} />
+      </div>
+    )
+  }
 }
-
-export default App;
